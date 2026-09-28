@@ -124,10 +124,10 @@
 ## 四、安装
 
 ```bash
-cp -r jianghushuo-skill ~/.hermes/skills/jianghushuo     # Hermes Agent
-cp -r jianghushuo-skill ~/.claude/skills/jianghushuo    # Claude Code
-cp -r jianghushuo-skill ~/.codex/skills/jianghushuo     # Codex CLI
-cp -r jianghushuo-skill ~/.cursor/skills/jianghushuo    # Cursor
+cp -r jianghushuo-persona ~/.hermes/skills/jianghushuo-persona   # Hermes Agent
+cp -r jianghushuo-persona ~/.claude/skills/jianghushuo-persona   # Claude Code
+cp -r jianghushuo-persona ~/.codex/skills/jianghushuo-persona    # Codex CLI
+cp -r jianghushuo-persona ~/.cursor/skills/jianghushuo-persona   # Cursor
 ```
 
 任何支持 skill 的 runtime：把本目录放到其 `skills/` 下即可，入口是 `SKILL.md`。
@@ -137,7 +137,7 @@ cp -r jianghushuo-skill ~/.cursor/skills/jianghushuo    # Cursor
 ## 五、文件结构
 
 ```
-jianghushuo-skill/
+jianghushuo-persona/
 ├── SKILL.md                     ← 入口：行为准则 / 工作流 / 6 个模型 / 创作流程 / 反模式
 ├── references/
 │   ├── final_models.md          ← 6 个心智模型完整版（三重验证 + 8–11 条证据）+ 61 条备选池
