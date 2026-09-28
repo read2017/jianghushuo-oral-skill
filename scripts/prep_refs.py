@@ -8,7 +8,7 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 EX = ROOT / ".build/extract"
 REF = ROOT / "references"
 REF.mkdir(exist_ok=True)

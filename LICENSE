@@ -1,0 +1,33 @@
+MIT License
+
+Copyright (c) 2026 阿哲（沉思哲）
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## 关于内容
+
+本仓库的**代码与文档结构**以上述 MIT 许可证授权。
+
+仓库内的思想内容、方法论、表达风格均提炼自**姜胡说**的公开视频作品与著作《价值心法》，
+著作权归原作者所有；本仓库仅以**提炼结论 + 有限引用**的形式呈现，不包含全量语料。
+
+提炼框架参考 [女娲 · Skill 造人术](https://github.com/alchaincyf/nuwa-skill)
+（MIT License, Copyright 2026 花叔）。
