@@ -67,19 +67,54 @@ def draw_centered(d, y, text, font, fill, alpha=1.0, dx=0):
     d.text((x, y), text, font=font, fill=col + (255,))
 
 
-def draw_moustache(d, cx, cy, scale=1.0, alpha=1.0):
-    """抽象胡子符号：两个弧线"""
+def mix(c1, c2, a):
+    return tuple(int(c1[i] * a + c2[i] * (1 - a)) for i in range(3))
+
+
+def draw_avatar(d, cx, cy, R, alpha=1.0):
+    """卡通「胡子哥」剪影头像：圆底 + 深色剪影 + 眼镜 + 八字胡。
+
+    不使用真人肖像，用图形语言还原他的标志性形象（眼镜 + 胡子）。
+    """
     if alpha <= 0.01:
         return
-    col = tuple(int(c * alpha + BG[i] * (1 - alpha)) for i, c in enumerate(FG))
-    w = max(2, int(4 * scale))
-    r = int(26 * scale)
-    d.arc([cx - r * 2, cy - r, cx, cy + r], start=112, end=178, fill=col + (255,), width=w)
-    d.arc([cx, cy - r, cx + r * 2, cy + r], start=2, end=68, fill=col + (255,), width=w)
+    INK = mix((13, 17, 23), BG, alpha)
+    LIGHT = mix((240, 244, 248), BG, alpha)
+    ACCENT = mix((88, 166, 255), BG, alpha)
+
+    # 圆底
+    d.ellipse([cx - R, cy - R, cx + R, cy + R], fill=LIGHT + (255,))
+    d.ellipse([cx - R, cy - R, cx + R, cy + R], outline=ACCENT + (255,), width=3)
+
+    # 肩膀剪影
+    d.pieslice([cx - R * 0.76, cy + R * 0.74, cx + R * 0.76, cy + R * 2.0], 180, 360,
+               fill=INK + (255,))
+    # 头部剪影
+    hr = R * 0.52
+    hx, hy = cx, cy - R * 0.05
+    d.ellipse([hx - hr, hy - hr * 1.12, hx + hr, hy + hr * 1.05], fill=INK + (255,))
+
+    # 眼镜（浅色圈 + 鼻梁 + 镜腿）
+    gr = hr * 0.32
+    gy = hy - hr * 0.12
+    for dx in (-hr * 0.45, hr * 0.45):
+        d.ellipse([hx + dx - gr, gy - gr, hx + dx + gr, gy + gr],
+                  fill=INK + (255,), outline=LIGHT + (255,), width=2)
+    d.line([hx - gr * 0.5, gy, hx + gr * 0.5, gy], fill=LIGHT + (255,), width=2)
+    d.line([hx - hr * 0.74, gy - gr * 0.3, hx - hr, gy - gr * 0.9], fill=LIGHT + (255,), width=2)
+    d.line([hx + hr * 0.74, gy - gr * 0.3, hx + hr, gy - gr * 0.9], fill=LIGHT + (255,), width=2)
+
+    # 八字胡（浅色粗弧）：从中间向两侧下垂
+    my = hy + hr * 0.44
+    mw = max(2, int(hr * 0.28))
+    d.arc([hx - hr * 0.74, my - hr * 0.28, hx, my + hr * 0.26], start=20, end=160,
+          fill=LIGHT + (255,), width=mw)
+    d.arc([hx, my - hr * 0.28, hx + hr * 0.74, my + hr * 0.26], start=20, end=160,
+          fill=LIGHT + (255,), width=mw)
 
 
 # ---------- 内容 ----------
-TITLE = "姜胡说 · persona skill"
+TITLE = "姜胡说 · 口播 skill"
 SUBTITLE = "从 433 条公开口播视频，蒸馏出一个人"
 
 PIPE = [
@@ -118,14 +153,14 @@ def frame(t):
 
     # ---- 阶段 1：标题（0.0–1.5s）----
     a1 = ease(t / 0.9)
-    draw_moustache(d, W / 2, 92 + int(14 * (1 - a1)), 1.0, a1)
-    draw_centered(d, 140, TITLE, f_title, FG, a1)
+    draw_avatar(d, W / 2, 92 + int(12 * (1 - a1)), 46, a1)
+    draw_centered(d, 154, TITLE, f_title, FG, a1)
     if t > 0.55:
         a = ease((t - 0.55) / 0.7)
-        draw_centered(d, 214, SUBTITLE, f_sub, DIM, a)
+        draw_centered(d, 226, SUBTITLE, f_sub, DIM, a)
 
     # ---- 阶段 2 / 3：同一区域先流水线、后模型（避免叠字）----
-    y0 = 264
+    y0 = 278
     if t < 4.10:
         for i, (num, label, color) in enumerate(PIPE):
             st = 1.45 + i * 0.36
@@ -144,14 +179,14 @@ def frame(t):
             d.text((W / 2 + 4, y + 8), label, font=f_txt, fill=lcol + (255,))
     else:
         ah = ease((t - 4.10) / 0.45)
-        draw_centered(d, 262, "蒸馏出的 6 个心智模型", pick(FONT_CANDIDATES, 24), DIM, ah)
+        draw_centered(d, 276, "蒸馏出的 6 个心智模型", pick(FONT_CANDIDATES, 24), DIM, ah)
         for i, m in enumerate(MODELS):
             st = 4.25 + i * 0.24
             if t < st:
                 break
             a = ease((t - st) / 0.45)
             col = [ACC, ACC3, ACC2, ACC4, ACC, ACC3][i]
-            draw_centered(d, 306 + i * 40, m, f_model, col, a)
+            draw_centered(d, 316 + i * 40, m, f_model, col, a)
 
     # ---- 阶段 4：底栏（5.9–7.0s）----
     if t > 5.85:
@@ -173,7 +208,7 @@ def main():
     # 量化以压缩体积
     pal = frames[0].quantize(colors=128)
     qs = [f.quantize(colors=128) for f in frames]
-    qs[0].save(out, save_all=True, append_images=qs[1:], duration=int(1000 / FPS), loop=0, optimize=True)
+    qs[0].save(out, save_all=True, append_images=qs[1:], duration=125, loop=0, optimize=True)
     kb = os.path.getsize(out) / 1024
     print(f"✅ {out}  {n} 帧  {kb/1024:.2f} MB")
 

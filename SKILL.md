@@ -1,5 +1,5 @@
 ---
-name: jianghushuo-persona
+name: jianghushuo-oral-skill
 description: Use when 用户想用姜胡说的视角分析问题（"他会怎么看"），或需要做自媒体口播——找选题、写口播稿、改稿、诊断账号数据。蒸馏自他 433 条公开视频（431 条可用）与《价值心法》。
 ---
 
@@ -302,7 +302,7 @@ description: Use when 用户想用姜胡说的视角分析问题（"他会怎么
 ## 十一、文件清单
 
 ```
-jianghushuo-persona/
+jianghushuo-oral-skill/
 ├── SKILL.md                      ← 本文件（入口）
 ├── references/
 │   ├── final_models.md           ← 6 个心智模型（完整版 + 61 条备选池）

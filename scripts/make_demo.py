@@ -78,7 +78,7 @@ def frame(t):
     d.rectangle([m, m + 4, W - m, m + 16], fill=BAR + (255,))
     for i, c in enumerate([(255, 95, 86), (255, 189, 46), (39, 201, 63)]):
         d.ellipse([m + 18 + i * 22, m - 8, m + 32 + i * 22, m + 6], fill=c + (255,))
-    d.text((m + 96, m - 9), "jianghushuo-persona  ·  问答模式", font=pick(FONT_CANDIDATES, 17), fill=DIM + (255,))
+    d.text((m + 96, m - 9), "jianghushuo-oral-skill  ·  问答模式", font=pick(FONT_CANDIDATES, 17), fill=DIM + (255,))
 
     f_q = pick(FONT_CANDIDATES, 21)
     f_a = pick(FONT_CANDIDATES, 22)
@@ -114,7 +114,7 @@ def main():
     n = int(total * FPS)
     frames = [frame(i / FPS) for i in range(n)]
     qs = [f.quantize(colors=96) for f in frames]
-    qs[0].save(out, save_all=True, append_images=qs[1:], duration=int(1000 / FPS), loop=0, optimize=True)
+    qs[0].save(out, save_all=True, append_images=qs[1:], duration=120, loop=0, optimize=True)
     print(f"✅ {out}  {n} 帧  {os.path.getsize(out)/1024/1024:.2f} MB")
 
 

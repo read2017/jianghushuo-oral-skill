@@ -1,6 +1,6 @@
 <div align="center">
 
-# 姜胡说.persona
+# 姜胡说 · 口播 skill
 
 <p align="center">
   <img src="assets/hero.gif" alt="从 433 条视频蒸馏出 6 个心智模型" width="100%"/>
@@ -26,7 +26,6 @@
 
 <br>
 
-[![Star History Chart](https://api.star-history.com/svg?repos=read2017/jianghushuo-persona&type=Date)](https://star-history.com/#read2017/jianghushuo-persona&Date)
 
 </div>
 
@@ -169,17 +168,17 @@
 打开你正在用的 agent（Claude Code / Codex / Cursor / Hermes / OpenClaw / Workbuddy / Gemini CLI / OpenCode……），告诉它：
 
 ```
-帮我安装这个 skill：https://github.com/read2017/jianghushuo-persona
+帮我安装这个 skill：https://github.com/read2017/jianghushuo-oral-skill
 ```
 
 ### 方式二：手动
 
 ```bash
-git clone https://github.com/read2017/jianghushuo-persona.git
-cp -r jianghushuo-persona ~/.hermes/skills/jianghushuo-persona     # Hermes Agent
-cp -r jianghushuo-persona ~/.claude/skills/jianghushuo-persona    # Claude Code
-cp -r jianghushuo-persona ~/.codex/skills/jianghushuo-persona     # Codex CLI
-cp -r jianghushuo-persona ~/.cursor/skills/jianghushuo-persona    # Cursor
+git clone https://github.com/read2017/jianghushuo-oral-skill.git
+cp -r jianghushuo-oral-skill ~/.hermes/skills/jianghushuo-oral-skill     # Hermes Agent
+cp -r jianghushuo-oral-skill ~/.claude/skills/jianghushuo-oral-skill    # Claude Code
+cp -r jianghushuo-oral-skill ~/.codex/skills/jianghushuo-oral-skill     # Codex CLI
+cp -r jianghushuo-oral-skill ~/.cursor/skills/jianghushuo-oral-skill    # Cursor
 ```
 
 ### 怎么唤起它
@@ -249,7 +248,7 @@ cp -r jianghushuo-persona ~/.cursor/skills/jianghushuo-persona    # Cursor
 我把爬取并转写的**全量语料**（433 条视频逐字稿 +《价值心法》OCR 文本 + ASR 时间轴 + 432 张论点卡）保留在本地。
 如果用于**学术研究、语料分析、非商业的内容研究**，欢迎邮件联系索取：
 
-📮 **liangzhe2016@gmail.com**（说明用途即可，一般当天回）
+📮 **read2016@qq.com**（说明用途即可，一般当天回）
 
 ---
 
@@ -277,7 +276,7 @@ cp -r jianghushuo-persona ~/.cursor/skills/jianghushuo-persona    # Cursor
 ## 文件结构
 
 ```text
-jianghushuo-persona/
+jianghushuo-oral-skill/
 ├── SKILL.md                     ← 入口：行为准则 / 工作流 / 6 个模型 / 创作流程 / 反模式
 ├── references/
 │   ├── final_models.md          ← 6 个心智模型完整版（三重验证 + 8–11 条证据）+ 61 条备选池
@@ -335,7 +334,7 @@ jianghushuo-persona/
 
 <p align="center">
   想做类似的人物 skill、想要全量语料、或者想聊聊 AI 产品：<br/>
-  📮 <b>liangzhe2016@gmail.com</b>
+  📮 <b>read2016@qq.com</b>
 </p>
 
 ---
