@@ -1,0 +1,5 @@
+# .mailmap —— 统一历史提交的身份显示
+# 重写历史前，早期 commit 用的是 liangzhe2016@gmail.com；统一归到 read2016@qq.com。
+# 格式：正确身份 <正确邮箱> 旧身份 <旧邮箱>
+
+阿哲 <read2016@qq.com> 阿哲 <liangzhe2016@gmail.com>
