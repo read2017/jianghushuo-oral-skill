@@ -1,33 +1,57 @@
-MIT License
+# 许可证
 
-Copyright (c) 2026 阿哲（沉思哲）
+本项目采用 **Creative Commons Attribution-NonCommercial 4.0 International（CC BY-NC 4.0，署名—非商业性使用）**。
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+> 完整法律文本：https://creativecommons.org/licenses/by-nc/4.0/legalcode.zh-Hans
 
 ---
 
-## 关于内容
+## ✅ 你可以
 
-本仓库的**代码与文档结构**以上述 MIT 许可证授权。
+- **个人学习、研究、使用** —— 装到自己的 AI agent 里，随便问、随便用
+- **复制、修改、分发** —— 改造成更适合自己的版本，甚至开源你的改法
+- **用于非商业的内容创作** —— 免费分享你用它的经验、录视频讲你怎么用的
 
-仓库内的思想内容、方法论、表达风格均提炼自**姜胡说**的公开视频作品与著作《价值心法》，
-著作权归原作者所有；本仓库仅以**提炼结论 + 有限引用**的形式呈现，不包含全量语料。
+## 📝 你必须
 
-提炼框架参考 [女娲 · Skill 造人术](https://github.com/alchaincyf/nuwa-skill)
-（MIT License, Copyright 2026 花叔）。
+- **署名**：注明来源（本项目名 + 链接），并说明是否做了修改
+- **保留本许可证声明**：你分发的内容里要带上这份许可
+- **标明非官方**：不得暗示姜胡说本人或本项目作者为你的产品、观点背书
+
+## ❌ 你不能
+
+- **商业性使用**，包括但不限于：
+  - 打包进付费课程、付费社群、付费工具、付费咨询
+  - 集成进商业产品或对外收费的服务
+  - 用于引流变现（例如「关注我 / 加我微信领取姜胡说 skill」）
+  - 把本 skill 生成的内容作为付费产品的主要卖点
+- **冒充或移植人格**：不得复刻姜胡说的声音、形象、签名，不得以他的名义发布新表态
+- **绕过语料边界**：不得把本仓库作为获取其视频、音频、逐字稿的渠道
+
+> 一句话：**自己用、学着用、免费分享着用，都可以；拿它赚钱，不行。**
+
+---
+
+## 关于内容与第三方权利
+
+| 部分 | 权利归属 |
+|---|---|
+| 仓库的代码、文档结构、提炼组织方式 | 本项目作者（阿哲 / 沉思哲），按上述 CC BY-NC 4.0 授权 |
+| **思想内容、方法论、表达风格** | 全部提炼自 **姜胡说（姜志辉）** 的公开视频作品与著作《价值心法》；著作权归原作者所有 |
+| 提炼框架 | 借鉴 [女娲 · Skill 造人术](https://github.com/alchaincyf/nuwa-skill)（MIT License, Copyright 2026 花叔）——**该部分沿用 MIT 许可**，需保留其版权声明 |
+
+**本仓库只包含「提炼结论 + 有限引用」，不包含全量语料。**
+433 条视频的完整逐字稿（94.7 万字）与《价值心法》OCR 全文（22.2 万字）均为本地研究材料，不随本仓库分发。
+
+**本项目是非官方、非授权的独立研究工具**，不代表姜胡说本人观点，也不暗示其认可、参与或背书。
+
+---
+
+## 需要全量语料做研究？
+
+我把爬取并转写的**全量原始语料**（433 条视频逐字稿 +《价值心法》OCR 文本 + ASR 时间轴）保留在本地，
+如果用于**学术研究、语料语言学分析、非商业的内容研究**，欢迎邮件联系索取：
+
+📮 **liangzhe2016@gmail.com**
+
+（请在邮件里说明用途，我一般当天回。）
