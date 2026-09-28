@@ -71,46 +71,45 @@ def mix(c1, c2, a):
     return tuple(int(c1[i] * a + c2[i] * (1 - a)) for i in range(3))
 
 
-def draw_avatar(d, cx, cy, R, alpha=1.0):
-    """卡通「胡子哥」剪影头像：圆底 + 深色剪影 + 眼镜 + 八字胡。
+AVATAR_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                           "assets", "avatar.png")
+_AV_CACHE = {}
 
-    不使用真人肖像，用图形语言还原他的标志性形象（眼镜 + 胡子）。
-    """
+
+def avatar_circle(R):
+    """把头像裁成圆形（4x 超采样后缩小，边缘平滑）"""
+    if R in _AV_CACHE:
+        return _AV_CACHE[R]
+    S = R * 2 * 4
+    src = Image.open(AVATAR_PATH).convert("RGBA")
+    w, h = src.size
+    m = min(w, h)
+    src = src.crop(((w - m) // 2, (h - m) // 2, (w - m) // 2 + m, (h - m) // 2 + m))
+    src = src.resize((S, S), Image.LANCZOS)
+    mask = Image.new("L", (S, S), 0)
+    ImageDraw.Draw(mask).ellipse([0, 0, S - 1, S - 1], fill=255)
+    # 内缩 6%，避免圆形遮罩切掉头顶与下巴
+    inner = int(S * 0.94)
+    canvas = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+    canvas.paste(src.resize((inner, inner), Image.LANCZOS),
+                 ((S - inner) // 2, (S - inner) // 2))
+    out = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+    out.paste(canvas, (0, 0), mask)
+    _AV_CACHE[R] = out.resize((R * 2, R * 2), Image.LANCZOS)
+    return _AV_CACHE[R]
+
+
+def draw_avatar(img, cx, cy, R, alpha=1.0):
+    """贴圆形头像 + 蓝色圆环"""
     if alpha <= 0.01:
         return
-    INK = mix((13, 17, 23), BG, alpha)
-    LIGHT = mix((240, 244, 248), BG, alpha)
-    ACCENT = mix((88, 166, 255), BG, alpha)
-
-    # 圆底
-    d.ellipse([cx - R, cy - R, cx + R, cy + R], fill=LIGHT + (255,))
-    d.ellipse([cx - R, cy - R, cx + R, cy + R], outline=ACCENT + (255,), width=3)
-
-    # 肩膀剪影
-    d.pieslice([cx - R * 0.76, cy + R * 0.74, cx + R * 0.76, cy + R * 2.0], 180, 360,
-               fill=INK + (255,))
-    # 头部剪影
-    hr = R * 0.52
-    hx, hy = cx, cy - R * 0.05
-    d.ellipse([hx - hr, hy - hr * 1.12, hx + hr, hy + hr * 1.05], fill=INK + (255,))
-
-    # 眼镜（浅色圈 + 鼻梁 + 镜腿）
-    gr = hr * 0.32
-    gy = hy - hr * 0.12
-    for dx in (-hr * 0.45, hr * 0.45):
-        d.ellipse([hx + dx - gr, gy - gr, hx + dx + gr, gy + gr],
-                  fill=INK + (255,), outline=LIGHT + (255,), width=2)
-    d.line([hx - gr * 0.5, gy, hx + gr * 0.5, gy], fill=LIGHT + (255,), width=2)
-    d.line([hx - hr * 0.74, gy - gr * 0.3, hx - hr, gy - gr * 0.9], fill=LIGHT + (255,), width=2)
-    d.line([hx + hr * 0.74, gy - gr * 0.3, hx + hr, gy - gr * 0.9], fill=LIGHT + (255,), width=2)
-
-    # 八字胡（浅色粗弧）：从中间向两侧下垂
-    my = hy + hr * 0.44
-    mw = max(2, int(hr * 0.28))
-    d.arc([hx - hr * 0.74, my - hr * 0.28, hx, my + hr * 0.26], start=20, end=160,
-          fill=LIGHT + (255,), width=mw)
-    d.arc([hx, my - hr * 0.28, hx + hr * 0.74, my + hr * 0.26], start=20, end=160,
-          fill=LIGHT + (255,), width=mw)
+    av = avatar_circle(R).copy()
+    if alpha < 1.0:
+        av.putalpha(av.getchannel("A").point(lambda v: int(v * alpha)))
+    img.paste(av, (int(cx - R), int(cy - R)), av)
+    d = ImageDraw.Draw(img)
+    ring = mix((88, 166, 255), BG, alpha)
+    d.ellipse([cx - R, cy - R, cx + R, cy + R], outline=ring + (255,), width=3)
 
 
 # ---------- 内容 ----------
@@ -153,7 +152,7 @@ def frame(t):
 
     # ---- 阶段 1：标题（0.0–1.5s）----
     a1 = ease(t / 0.9)
-    draw_avatar(d, W / 2, 92 + int(12 * (1 - a1)), 46, a1)
+    draw_avatar(img, W / 2, 92 + int(12 * (1 - a1)), 46, a1)
     draw_centered(d, 154, TITLE, f_title, FG, a1)
     if t > 0.55:
         a = ease((t - 0.55) / 0.7)
