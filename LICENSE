@@ -19,11 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Scope note: this repository contains distilled notes, limited quotations and
-tooling only. The full source corpus (433 video transcripts, OCR text of the
-book, ASR timestamps) is not part of this repository, is not distributed here,
-and is not covered by the MIT License above. See README.md for how to obtain
-it.
