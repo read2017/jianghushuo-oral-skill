@@ -8,7 +8,7 @@
 
 > *「这个世界是以你攀登的最高峰来定义你的」*
 
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Standard-green)](https://agentskills.io)
 [![Runtime](https://img.shields.io/badge/Runtime-Claude%20Code%20·%20Codex%20·%20Cursor%20·%20Hermes-blueviolet)](#安装)
 [![Made with 女娲.skill](https://img.shields.io/badge/Made%20with-女娲.skill-orange)](https://github.com/alchaincyf/nuwa-skill)
@@ -245,10 +245,11 @@ cp -r jianghushuo-oral-skill ~/.cursor/skills/jianghushuo-oral-skill    # Cursor
 
 ### 想要全量原始语料？
 
-我把爬取并转写的**全量语料**（433 条视频逐字稿 +《价值心法》OCR 文本 + ASR 时间轴 + 432 张论点卡）保留在本地。
-如果用于**学术研究、语料分析、非商业的内容研究**，欢迎邮件联系索取：
+我把爬取并转写的**全量语料**（433 条视频逐字稿 +《价值心法》OCR 文本 + ASR 时间轴 + 432 张论点卡）保留在本地。**语料不在本仓库内，也不在 MIT 授权范围内**，需要的话走付费获取：
 
-📮 **read2016@qq.com**（说明用途即可，一般当天回）
+📮 **read2016@qq.com** —— 邮件里说明用途、使用场景和大致预算，我回价格与交付方式。
+
+> 仓库里的提炼结论、方法与有限引用可以直接用（MIT）；**全量原始语料只做付费交付，不再提供免费索取**。
 
 ---
 
@@ -379,7 +380,7 @@ jianghushuo-oral-skill/
 </table>
 
 <p align="center">
-  想做类似的人物 skill、想要全量语料、或者想聊聊 AI 产品：<br/>
+  想做类似的人物 skill、想付费获取全量语料、或者想聊聊 AI 产品：<br/>
   📮 <b>read2016@qq.com</b>
 </p>
 
@@ -387,18 +388,20 @@ jianghushuo-oral-skill/
 
 ## 许可证
 
-本项目采用 **[CC BY-NC 4.0](LICENSE)**（署名—非商业性使用）：
+本项目采用 **[MIT](LICENSE)**（Copyright © 2026 沉思哲 / read2017）：
 
-- ✅ 个人学习、研究、免费分享、改造后开源 —— 随便用
-- 📝 **署名**：注明来源，并标明是否做了修改
-- ❌ **商业使用**：不得打包进付费课程 / 社群 / 工具，不得用于引流变现
-- ❌ 不得复刻姜胡说的声音、形象，不得冒充其本人表态
+- ✅ **随便用**：个人学习、商业使用、修改、再分发、打包进产品或付费服务 —— 只要保留版权声明与许可声明
+- 📝 **署名**：保留 `LICENSE` 中的版权与许可声明；注明来源是礼貌，不是附加条件
+- 💰 **语料不在授权范围内**：MIT 只覆盖本仓库内的代码与文档。433 条逐字稿与《价值心法》OCR 全文不随仓库分发，需付费获取（见上文「想要全量原始语料？」）
 
-> 一句话：**自己用、学着用、免费分享着用，都可以；拿它赚钱，不行。**
+> 一句话：**仓库里的东西随便用，包括商用；语料是另一回事，得买。**
 
-思想内容与表达风格来自 **姜胡说**（著作权归原作者）；提炼框架借鉴
-[女娲 · Skill 造人术](https://github.com/alchaincyf/nuwa-skill)（MIT，Copyright 2026 花叔）。
-本项目是**非官方**的独立研究工具，不代表姜胡说本人观点。
+### 关于内容与第三方权利
+
+- 思想内容、方法论与表达风格来自 **姜胡说（姜志辉）** 的公开视频与《价值心法》，著作权归原作者。本项目是**非官方**的独立研究工具，不代表姜胡说本人观点，也不暗示其认可、参与或背书。
+- 提炼框架借鉴 [女娲 · Skill 造人术](https://github.com/alchaincyf/nuwa-skill)（MIT，Copyright 2026 花叔），其版权声明保留。
+- 不得复刻姜胡说的声音、形象、签名，或以他的名义发布新表态。
+- `assets/avatar.png` 为姜胡说本人在公开账号使用的形象，仅作识别与说明之用，著作权归其本人；如权利人提出异议将立即移除。
 
 <p align="center">
   <sub>如果这个 skill 帮到你，给个 ⭐ 就行了——它不会说「记得点赞关注」的。</sub>
